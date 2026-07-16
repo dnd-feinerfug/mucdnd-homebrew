@@ -1,0 +1,203 @@
+{
+	"_meta": {
+		"sources": [
+			{
+				"json": "MucDnDHomebrew",
+				"abbreviation": "MHB",
+				"full": "MUC DnD Homebrew",
+				"version": "0.1",
+				"color": "003aa6",
+				"colorNight": "babafe"
+			}
+		]
+	},
+	"item": [
+	{
+	"name": "Small Imbued Crystal",
+	"source": "MucDnDHomebrew",
+	"rarity": "common",
+	"wondrous": true,
+	"reqAttune": "optional",
+	"weight": 0.1,
+	"entries": [
+		"This crystal holds a single spell,  a cantrip or a level 1 spell, stored within it by a practitioner of crystallomancy.",
+		"While attuned to this crystal, you can expend 1 of its charges to cast the stored spell from it. The spell uses the spellcasting ability modifier, spell attack modifier, and spell save DC of the creature that imbued the crystal, fixed at the time of imbuement.",
+		"A creature that isn't attuned to the crystal can still cast the stored spell from it by expending 1 charge, but doing so takes 10 minutes longer than the spell's normal casting time, as with a Ritual (the charge is still expended though).",
+		"A crystal imbued with a cantrip holds a number of charges equal to the imbuer's proficiency bonus at the time of imbuement. A crystal imbued with a level 1 spell holds 1 charge. When the last charge is expended, the crystal crumbles to worthless dust.",
+		{
+			"type": "entries",
+			"name": "Crafting",
+			"entries": [
+				"An imbued crystal is created with the Crystal Imbuement feature of the {@feat Crystallomantic Initiate|MucDnDHomebrew} feat [or a respective ability of a Crystallomant Class...], requiring 1 hour of work and an Energy Crystal worth at least 25gp of materials."
+			]
+		}
+	]
+},
+		{
+			"name": "Crystal Staff of Healing",
+			"source": "MucDnDHomebrew",
+			"rarity": "rare",
+			"reqAttune": "by a bard, cleric, or druid",
+			"reqAttuneTags": [
+				{
+					"class": "bard"
+				},
+				{
+					"class": "cleric"
+				},
+				{
+					"class": "druid"
+				}
+			],
+			"weight": 4,
+			"weaponCategory": "simple",
+			"property": [
+				"V|XPHB"
+			],
+			"mastery": [
+				"Topple|XPHB"
+			],
+			"dmg1": "1d6",
+			"dmgType": "B",
+			"dmg2": "1d8",
+			"staff": true,
+			"entries": [
+				"This staff has 15 charges. While holding the staff, you can cast one of the spells on the following table from it, using your spellcasting ability modifier. The table indicates how many charges you must expend to cast the spell.",
+				{
+					"type": "table",
+					"colStyles": [
+						"col-10",
+						"col-2 text-center"
+					],
+					"colLabels": [
+						"Spell",
+						"Charge Cost"
+					],
+					"rows": [
+						[
+							"{@spell Cure Wounds|XPHB} Level 1",
+							"1 charge for Level 1"
+						],
+						[
+							"{@spell Cure Wounds|XPHB} Level 2 and 3",
+							"2 charges per spell level"
+						],
+						[
+							"{@spell Cure Wounds|XPHB} Level 4",
+							"8"
+						],
+						[
+							"{@spell Lesser Restoration|XPHB}",
+							"2"
+						],
+						[
+							"{@spell Mass Cure Wounds|XPHB}",
+							"10"
+						]
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Regaining Charges",
+					"entries": [
+						"The staff regains charges by replacing a depleted energy crystal by a practicioner of crystallomancy using the Energy Crystral Replacement Feature with an energy crystal worth at least 375 gp."
+					]
+				}
+			],
+			"attachedSpells": {
+				"will": [
+					"cure wounds|xphb"
+				],
+				"charges": {
+					"2": [
+						"lesser restoration|xphb"
+					],
+					"5": [
+						"mass cure wounds|xphb"
+					]
+				}
+			}
+		}
+	],
+	"feat": [
+		{
+			"name": "Crystallomantic Initiate",
+			"source": "MucDnDHomebrew",
+			"category": "G",
+			"ability": [
+				{
+					"choose": {
+						"from": [
+							"int",
+							"wis",
+							"cha"
+						]
+					}
+				}
+			],
+			"additionalSpells": [
+				{
+					"name": "Wizard Spells",
+					"ability": {
+						"choose": [
+							"int"
+						]
+					},
+					"innate": {
+						"_": {
+							"daily": {
+								"1": [
+									{
+										"choose": "level=1|class=Wizard"
+									}
+								]
+							}
+						}
+					},
+					"known": {
+						"_": [
+							{
+								"choose": "level=0|class=Wizard",
+								"count": 2
+							}
+						]
+					}
+				}
+			],
+			"entries": [
+				"You gain the following benefits.",
+				{
+					"type": "entries",
+					"name": "Energy Crystal Handling",
+					"entries": [
+						"You can safely install, remove, and replace crystals in crystallomantic devices, including charging staves and similar items with crystals you possess. Doing so requires 10 minutes of work and successful Intelligence (Arcana) check (DC 10). On each attempt roll a D100 on a result of 1, the device is destroyed."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Crystallomantic Spells",
+					"entries": [
+						"You learn a number of 1st-level spells or Cantrips equal to your proficiency bonus, chosen from the {@filter Wizard|spells|level=0;1|class=Wizard} spell list. These count as Crystallomant spells for you and you have them prepared as such. You can cast each of them by expending a suitably charged crystal (see Crystal Imbuement), or with a spell slot if you have one of the appropriate level. You can switch one of these spells when you gain a new level. Intelligence is your spellcasting ability for this feat's spells."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Crystal Imbuement",
+					"entries": [
+						"As 1 hour of work and using a energy crystal worth at least 25 gp, you can create an {@item Small Imbued Crystal|MucDnDHomebrew} storing a cantrip or 1st-level crystallomantic spell you have prepared."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Crystal Transcribing",
+					"entries": [
+						"You can spend time studying a charged or imbued crystal or other crystallomantic device in order to transcribe its spell effect, learning to reproduce it yourself as a Crystallomant spell. If you can utilise a spellbook (as from the wizard class [or the at some point to be introduced Crystallomant class] you can transcribe the effect to your spellbook, using the same rules as transcribing a scroll. Any charges in the crystallomantic device or chrystal are expended if you do so. If the device doesn't have charges, it is not destroyed.",
+						"You can also transcribe a Wizard Spell you have prepared as a Crystallomant spell using the same rules and cost.",
+						"If you transcribe a spell as a Crystallomant spell, you can replace one of the spells you know from 'Chrystallomantic Spells' with this spell as long as the spell effect is of Level 1 or a Cantrip and on the Wizard spell list."
+					]
+				}
+			]
+		}
+		
+	]
+}
